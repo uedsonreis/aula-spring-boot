@@ -1,0 +1,28 @@
+
+<html>
+
+	<head>
+		<h3>
+			Usuário Logado: <label id="user"></label> - 
+			<a href="login.html" onclick="logout()">Sair</a>
+		</h3>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+	
+		<p>
+			Login: <input type="text" name="nome" id="name"> <br>
+			Senha: <input type="text" name="senha" id="password"> <br>
+			<input type="button" value="Salvar" onclick="salvar()">
+		</p>
+		
+		<table id="listagem" style="min-width:40%; text-align: center;" border="1">
+            <tr> <th> Nome </th> <th> Senha </th> </tr>
+        </table>
+		
+	</body>
+	
+</html>

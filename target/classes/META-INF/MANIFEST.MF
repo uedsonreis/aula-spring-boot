@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: AulaSpringBoot
+Implementation-Version: 0.0.1
+Built-By: uedsonreis
+Implementation-Vendor-Id: AulaSpringBoot
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/AulaSpringBoot
+Created-By: Maven Integration for Eclipse
+
