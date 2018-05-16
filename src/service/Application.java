@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import bo.GerenciaLogin;
-import bo.Login;
 
 @SpringBootApplication
 public class Application {
@@ -34,19 +33,9 @@ public class Application {
         };
     }
     
-//    @Bean
-//    public SpringConfig springConfig() {
-//    		return new SpringConfig();
-//    }
-    
     @Bean
     public GerenciaLogin gerenciaLogin() {
     		return new GerenciaLogin();
-    }
-    
-    @Bean
-    public Login login() {
-    		return new Login();
     }
 
 }
