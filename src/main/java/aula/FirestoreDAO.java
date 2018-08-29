@@ -1,4 +1,4 @@
-package hello;
+package aula;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -14,9 +14,13 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
+import aula.gerente.Funcionario;
+import aula.hello.Greeting;
+
 public class FirestoreDAO {
 	
 	private CollectionReference collectionGreeting;
+	private CollectionReference collectionFuncionario;
 
 	public FirestoreDAO() {
 		this.connect();
@@ -35,6 +39,7 @@ public class FirestoreDAO {
 			
 			Firestore db = FirestoreClient.getFirestore();
 			this.collectionGreeting = db.collection("greeting");
+			this.collectionFuncionario = db.collection("funcionario");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,6 +67,41 @@ public class FirestoreDAO {
 			for (QueryDocumentSnapshot doc: documents) {
 				Greeting greeting = doc.toObject(Greeting.class);
 				lista.add(greeting);
+			}
+			
+			return lista;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public boolean save(Funcionario f) {
+		try {
+			DocumentReference doc = this.collectionFuncionario.document(f.getEmail());
+			doc.set(f);
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean delete(String email) {
+		return this.collectionFuncionario.document(email).delete().isDone();
+	}
+	
+	public List<Funcionario> getFuncionarios() {
+		List<Funcionario> lista = new ArrayList<>();
+		
+		try {
+			List<QueryDocumentSnapshot> documents = this.collectionFuncionario.get().get().getDocuments();
+			
+			for (QueryDocumentSnapshot doc: documents) {
+				Funcionario funcionario = doc.toObject(Funcionario.class);
+				lista.add(funcionario);
 			}
 			
 			return lista;

@@ -1,4 +1,4 @@
-package hello;
+package aula.hello;
 
 public class Greeting {
 
