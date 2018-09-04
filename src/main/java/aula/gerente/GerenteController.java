@@ -3,10 +3,12 @@ package aula.gerente;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins="*")
 @RestController
 public class GerenteController {
 
@@ -14,25 +16,12 @@ public class GerenteController {
 	private Gerente gerente;
 	
 	@RequestMapping("/funcionario/contratar")
-    public Boolean contratar(
-    		@RequestParam(value="nome") String nome,
-    		@RequestParam(value="sobreNome") String sobreNome,
-    		@RequestParam(value="idade") Integer idade) {
-    	
-		Funcionario f = new Funcionario();
-		f.setNome(nome);
-		f.setSobreNome(sobreNome);
-		f.setIdade(idade);
-    	
+    public Boolean contratar(@RequestBody Funcionario f) {
         return this.gerente.contratar(f);
     }
 	
 	@RequestMapping("/funcionario/demitir")
-    public Boolean demitir(@RequestParam String email) {
-    	
-		Funcionario f = new Funcionario();
-		f.setEmail(email);
-    	
+    public Boolean demitir(@RequestBody Funcionario f) {    	
         return this.gerente.demitir(f);
     }
 	

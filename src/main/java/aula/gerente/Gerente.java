@@ -11,7 +11,7 @@ public class Gerente {
 	@Autowired
 	private FirestoreDAO dao;
 	
-	public boolean contratar(Funcionario funcionario) {
+	public Boolean contratar(Funcionario funcionario) {
 		
 		funcionario.setEmail(
 				funcionario.getNome().toLowerCase().trim()

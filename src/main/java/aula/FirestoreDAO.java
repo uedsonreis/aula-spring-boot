@@ -90,7 +90,14 @@ public class FirestoreDAO {
 	}
 	
 	public boolean delete(String email) {
-		return this.collectionFuncionario.document(email).delete().isDone();
+		try {
+			this.collectionFuncionario.document(email).delete();
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public List<Funcionario> getFuncionarios() {
