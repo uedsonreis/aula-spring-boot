@@ -13,11 +13,13 @@ public class Gerente {
 	
 	public Boolean contratar(Funcionario funcionario) {
 		
-		funcionario.setEmail(
-				funcionario.getNome().toLowerCase().trim()
-				+"."
-				+funcionario.getSobreNome().toLowerCase().trim()
-				+"@unime.edu.br");
+		if (funcionario.getEmail() == null) {
+
+			funcionario.setEmail(
+					funcionario.getNome().toLowerCase().trim() +"."
+					+funcionario.getSobreNome().toLowerCase().trim()
+					+"@unime.edu.br");
+		}
 		
 		return this.dao.save(funcionario);
 	}

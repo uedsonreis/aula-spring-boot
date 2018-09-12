@@ -15,12 +15,12 @@ public class GerenteController {
 	@Autowired
 	private Gerente gerente;
 	
-	@RequestMapping("/funcionario/contratar")
+	@RequestMapping("/contratar")
     public Boolean contratar(@RequestBody Funcionario f) {
         return this.gerente.contratar(f);
     }
 	
-	@RequestMapping("/funcionario/demitir")
+	@RequestMapping("/demitir")
     public Boolean demitir(@RequestBody Funcionario f) {    	
         return this.gerente.demitir(f);
     }
