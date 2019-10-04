@@ -28,7 +28,7 @@ public class FirestoreDAO {
 	
 	private void connect() {
 		try {
-			InputStream serviceAccount = new FileInputStream("aula-f607b-firebase-adminsdk-0cbot-9bb352d1fc.json");
+			InputStream serviceAccount = new FileInputStream("config-file-firebase-adminsdk.json");
 			GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(credentials)
